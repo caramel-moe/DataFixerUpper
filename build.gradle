@@ -107,7 +107,11 @@ if (version.endsWith("SNAPSHOT")) {
 } else {
     publishing.repositories {
         maven {
-            url "$buildDir/repo"
+            url "https://repo.caramel.moe/repository/maven-releases/"
+            credentials {
+                username = System.getenv("DEPLOY_ID")
+                password = System.getenv("DEPLOY_PW")
+            }
         }
     }
 
